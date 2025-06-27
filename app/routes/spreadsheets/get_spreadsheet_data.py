@@ -7,7 +7,7 @@ class SheetsReader(BaseModel):
 
 router = APIRouter()
 
-@router.post("/sheets")
+@router.post("/sheets", tags=["planilhas"])
 async def get_sheets_url(url: SheetsReader) -> dict:
   result = spreadsheet_reader(url.url)
-  return { "message": result }
+  return { "data": result }
